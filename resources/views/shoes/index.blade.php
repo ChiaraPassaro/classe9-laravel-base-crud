@@ -1,5 +1,12 @@
 @extends('layouts.layout')
 @section('header')
+    @if (session('id'))
+        <div class="alert alert-success">
+            Hai cancellato la scarpa id: {{ session('id') }}
+        </div>
+    @endif
+
+
     <h1>Tutte le scarpe</h1>
     @if(!empty($id))
       <div>Hai cancellato il record {{$id}}</div>

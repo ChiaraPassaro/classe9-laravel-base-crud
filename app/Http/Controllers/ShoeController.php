@@ -26,6 +26,7 @@ class ShoeController extends Controller
      */
     public function index()
     {
+
         $shoes = Shoe::all();
 
         return view('shoes.index', compact('shoes'));
@@ -159,11 +160,12 @@ class ShoeController extends Controller
     { 
         $id = $shoe->id;
         $deleted = $shoe->delete();
-        $data = [
-            'id' => $id,
-            'shoes' => Shoe::all()
-        ];
+        // $data = [
+        //     'id' => $id,
+        //     'shoes' => Shoe::all()
+        // ];
         
-        return view('shoes.index', $data);
+        // return view('shoes.index', $data);
+        return redirect()->route('shoes.index')->with('id', $id);
     }
 }
